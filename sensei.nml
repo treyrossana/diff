@@ -44,12 +44,12 @@
  /
 &FLUX
  HIGHER_ORDER_SCHEME="muscl",
- FLUX_SCHEME="roe",
+ FLUX_SCHEME="vanleer",
  KAPPA=-1.0000000000000000     ,
  KAPPA_ERR= -1.0000000000000000     ,
  FLUX_LIM="michalak",
- FREEZE_MEAN_LIM=2000         ,
- FREEZE_TURB_LIM=2000    ,
+ FREEZE_MEAN_LIM=2500         ,
+ FREEZE_TURB_LIM=2500    ,
  MEAN_NO_LIM=F,
  TURB_NO_LIM=F,
  TURB_1ST_ORDER=F,
@@ -74,7 +74,7 @@
  PRECOND_SIDE="left",
  ILU_LFIL=40,
  ILU_DROPTOL=  1.0000000000000000E-004,
- JACOBIAN="roe",
+ JACOBIAN="vanleer",
  /
 &TIME_INTEGRATION
  TIME_INTEGRATOR="implicit",
@@ -87,12 +87,12 @@
  RAMP_ORDER_TOLERANCE=  1.0000000000000000E-005,
  RK_STEPS=0,
  USE_EXACT_JACOBIAN=F,
- CFL_INIT=  0.01     ,
+ CFL_INIT=  0.001     ,
  ! CFL_MIN - potentially useful if you want to use RDM
  !           (will prevent the time step from getting too small)
  CFL_MIN=  1.0e-2,
  CFL_MAX=  1000     ,
- START_CFL_ADVANCE_ITER=10,
+ START_CFL_ADVANCE_ITER=5,
  ! New CFL advance scheme
  ! number of steps in 'N_CFL_LIST'
  ! iteration to apply at each step in 'CFL_LIST_ITER'
@@ -109,8 +109,8 @@
  RAMP_END_ITER= 1000    ,
  RAMP_END_CFL= 1.25   ,
  N_CFL_LIST=7,
- CFL_LIST_ITER=  50, 150, 300, 800, 1000, 1300, 1500, 
- CFL_LIST_VAL= 0.05, 0.1, 0.5,   1, 1.25,    5,  20,   
+ CFL_LIST_ITER=  69, 115, 220, 270, 420, 1000, 1600,
+ CFL_LIST_VAL= 0.01, 0.1, 0.4, 0.8,   2,    4,    8,
  EXPUR_OMEGA_MIN=  1.0000000000000000E-002,
  EXPUR_BETA=  1.0500000000000000     ,
  EXPUR_KAPPA= 0.10000000000000001     ,
